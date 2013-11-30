@@ -1,0 +1,43 @@
+<h1>Listing ipc_airbuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ac type</th>
+      <th>Ata</th>
+      <th>System</th>
+      <th>Description</th>
+      <th>Fin</th>
+      <th>Add infos</th>
+      <th>Part number</th>
+      <th>Add material info</th>
+      <th>Ipc</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ipc_airbuses.each do |ipc_airbus| %>
+      <tr>
+        <td><%= ipc_airbus.ac_type %></td>
+        <td><%= ipc_airbus.ata %></td>
+        <td><%= ipc_airbus.system %></td>
+        <td><%= ipc_airbus.description %></td>
+        <td><%= ipc_airbus.fin %></td>
+        <td><%= ipc_airbus.add_infos %></td>
+        <td><%= ipc_airbus.part_number %></td>
+        <td><%= ipc_airbus.add_material_info %></td>
+        <td><%= ipc_airbus.ipc %></td>
+        <td><%= link_to 'Show', ipc_airbus %></td>
+        <td><%= link_to 'Edit', edit_ipc_airbus_path(ipc_airbus) %></td>
+        <td><%= link_to 'Destroy', ipc_airbus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ipc airbus', new_ipc_airbus_path %>

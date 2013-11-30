@@ -1,0 +1,53 @@
+<%= form_for(@ipc_airbus) do |f| %>
+  <% if @ipc_airbus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ipc_airbus.errors.count, "error") %> prohibited this ipc_airbus from being saved:</h2>
+
+      <ul>
+      <% @ipc_airbus.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ac_type %><br>
+    <%= f.text_field :ac_type %>
+  </div>
+  <div class="field">
+    <%= f.label :ata %><br>
+    <%= f.text_field :ata %>
+  </div>
+  <div class="field">
+    <%= f.label :system %><br>
+    <%= f.text_field :system %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :fin %><br>
+    <%= f.text_field :fin %>
+  </div>
+  <div class="field">
+    <%= f.label :add_infos %><br>
+    <%= f.text_field :add_infos %>
+  </div>
+  <div class="field">
+    <%= f.label :part_number %><br>
+    <%= f.text_field :part_number %>
+  </div>
+  <div class="field">
+    <%= f.label :add_material_info %><br>
+    <%= f.text_field :add_material_info %>
+  </div>
+  <div class="field">
+    <%= f.label :ipc %><br>
+    <%= f.text_field :ipc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
