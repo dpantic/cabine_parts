@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
+gem 'yaml_db'
+ gem 'paperclip'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
