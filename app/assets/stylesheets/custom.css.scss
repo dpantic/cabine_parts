@@ -3,6 +3,11 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$grayDarker:      #222;
+$grayLight:       #999;
+$grayLighter:     #eee;
+$gray:            #555;
+$blue:            #0000FF;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -14,11 +19,21 @@ $grayMediumLight: #eaeaea;
 
 html {
   overflow-y: scroll;
+  overflow: auto;
 }
 
 body {
   padding-top: 60px;
-}
+} 
+
+.background {  
+  background: url(77.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} 
+
 
 section {
   overflow: auto;
@@ -183,6 +198,7 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+
 }
 
 input {
@@ -244,3 +260,62 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+.icon-zoom-in
+{
+  position:relative;
+  left:23px;
+  top:-8px;
+  z-index:999;
+}
+.input-append input
+{
+  height:35px;
+  padding-left:25px;
+} 
+
+.thead {
+  overflow: auto;
+}
+
+thead {
+  color: darkblue;
+  width:100px;
+  height:150px;
+  overflow: scroll;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  table-layout:auto;
+  column-fill:auto;
+}
+
+.select2-container {
+margin: 0;
+position: relative;
+display: inline-block;
+zoom: 1;
+vertical-align: middle;
+}
+
+.select2-container, .select2-drop, .select2-search, .select2-search input {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.select2-container {
+zoom: 1;
+}
+
+.select2-container .select2-choice {
+white-space: nowrap;
+line-height: 26px;
+color: #444;
+}
+
+th, td {
+    white-space: nowrap;
+}
+
+/*--------------------------------------------------*/
+

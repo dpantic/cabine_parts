@@ -1,0 +1,20 @@
+<%= form_for @spm, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :spm_ref, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :spm_ref, :class => 'text_field', :maxlength => '8' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bauteil, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bauteil, :class => 'text_field', :maxlength => '40' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                spms_path, :class => 'btn' %>
+  </div>
+<% end %>

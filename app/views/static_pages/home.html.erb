@@ -1,35 +1,74 @@
 <% if signed_in? %>
   <div class="row">
+
     <aside class="span4">
+
       <section>
         <%= render 'shared/user_info' %>
       </section>
+
       <section>
         <%= render 'shared/stats' %>
       </section>
+
       <section>
         <%= render 'shared/micropost_form' %>
       </section>
     </aside>
+
     <div class="span8">
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>  
+
 <% else %>
-  <div class="center hero-unit">
-    <h1>Welcome to the<br>
-      Cabin-Parts App</h1>
-
-    <h2>
-      This is the home page for the
-      <a href="#http://cabin-parts.org/">Cabin-Parts Database App</a>
-      Beta version.
-    </h2>
-
-    <%= link_to "Sign up now!", signup_path, 
-                                class: "btn btn-large btn-primary" %>
-  </div>
-
-  <%= link_to image_tag("a380.png", alt: "a380"), 'http://rubyonrails.org/' %>
-<% end %> 
+       <script>
+          $(document).ready(function() {
+              snowFall.snow($("section"), {
+                  minSize: 1,
+                  maxSize: 8,
+                  round: true,
+                  minSpeed: 1,
+                  maxSpeed: 3,
+                  flakeCount: 120
+              });
+          });
+       </script>
+         </div>
+         
+  </head>
+     <div class="background">
+       <div class="container">
+          <div class="col-md-4 col-md-offset-7">
+             <div class="panel panel-default">
+               <div class="panel-heading">    
+                <div class="panel-body">
+                     <form class="form-horizontal" role="form">
+     
+                    <div class="col-sm-9">
+                        <h1><span class="fa fa-plane"></i>  Cabin-Parts App </h1>
+              
+                        <div class="panel-body">
+                          <form class="form-horizontal" role="form">
+                             <div class="form-group">
+              
+                             <h2>Cabin-Parts App Beta Version.</h2>
+                            </div>
+                          </div>
+                        </div>
+                            <div class="form-group last">
+                              <div class="col-sm-offset-3 col-sm-9">
+                               <%= link_to "Sign in!", signin_path, class: "btn btn-large btn-primary" %>
+                                 
+                               <%= link_to "Sign up!", signup_path, class: "btn btn-success btn-sm" %>
+                                  <% end %> 
+                             </div>
+                             </div>
+    
+                     
+                        
+                      
+                           
+                                             
+                    

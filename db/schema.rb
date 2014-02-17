@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130192926) do
+ActiveRecord::Schema.define(version: 20131210152434) do
 
   create_table "ipc_airbuses", force: true do |t|
     t.string   "ac_type"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20131130192926) do
     t.string   "system"
     t.string   "description"
     t.string   "fin"
+    t.string   "add_infos"
+    t.string   "part_number"
+    t.string   "add_material_info"
+    t.string   "ipc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ipcboeings", force: true do |t|
+    t.string   "ac_type",           limit: 6
+    t.string   "ata",               limit: 5
+    t.string   "system"
+    t.string   "description"
+    t.string   "location"
     t.string   "add_infos"
     t.string   "part_number"
     t.string   "add_material_info"
@@ -46,6 +60,13 @@ ActiveRecord::Schema.define(version: 20131130192926) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "spms", force: true do |t|
+    t.string   "spm_ref",    limit: 8
+    t.string   "bauteil",    limit: 20
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

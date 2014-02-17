@@ -1,26 +1,47 @@
-<h1>Listing ipc_airbuses</h1>
+<%- model_class = IpcAirbus -%>
+ <div class="page-header">
+  <!-- <h1><%#=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
+   <h1>Airbus Parts List</h1>
+</div> 
 
-<table>
+<div class="tab-content">
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Ac type</th>
-      <th>Ata</th>
-      <th>System</th>
-      <th>Description</th>
-      <th>Fin</th>
-      <th>Add infos</th>
-      <th>Part number</th>
-      <th>Add material info</th>
-      <th>Ipc</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= sortable model_class.human_attribute_name(:id) %></th>
+      <th><%= sortable model_class.human_attribute_name(:ac_type) %></th>
+      <th><%= sortable model_class.human_attribute_name(:ata) %></th>
+      <th><%= sortable model_class.human_attribute_name(:system) %></th>
+      <th><%= sortable model_class.human_attribute_name(:description) %></span>
+             <!-- <abbr class="select2-search-choice-close"></abbr>
+              <span class="select2-arrow">
+              <b></b>
+          </span>
+        </a> 
+          <input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen1">
+            <div class="select2-drop select2-display-none select2-with-searchbox">
+            <div class="select2-search">
+            </div>-->
+            
+        <!--  <select id="select-description" style="width: 150px" tabindex="-1" class="select2-offscreen">
+            <option></option>
+            <option value="6">A</option>
+          </select>
+        <div style="width: 200px"><%#= link_to model_class.human_attribute_name(:description, :sort =>"description") %> --> </th>
+       
+      <th><%= sortable model_class.human_attribute_name(:fin) %></th>
+      <th><%= sortable model_class.human_attribute_name(:add_infos) %></th>
+      <th><%= sortable model_class.human_attribute_name(:part_number) %></th>
+      <th><%= sortable model_class.human_attribute_name(:add_material_info) %></th>
+      <th><%= sortable model_class.human_attribute_name(:ipc) %></th>
+      <th><%#= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @ipc_airbuses.each do |ipc_airbus| %>
       <tr>
+        <td><%= link_to ipc_airbus.id, ipc_airbus_path(ipc_airbus) %></td>
         <td><%= ipc_airbus.ac_type %></td>
         <td><%= ipc_airbus.ata %></td>
         <td><%= ipc_airbus.system %></td>
@@ -30,14 +51,33 @@
         <td><%= ipc_airbus.part_number %></td>
         <td><%= ipc_airbus.add_material_info %></td>
         <td><%= ipc_airbus.ipc %></td>
-        <td><%= link_to 'Show', ipc_airbus %></td>
-        <td><%= link_to 'Edit', edit_ipc_airbus_path(ipc_airbus) %></td>
-        <td><%= link_to 'Destroy', ipc_airbus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#=l ipc_airbus.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ipc_airbus_path(ipc_airbus), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ipc_airbus_path(ipc_airbus),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ipc_airbus_path,
+            :class => 'btn btn-primary' %>
+<div>
+  </br>
+  <footer class="footer">
 
-<br>
-
-<%= link_to 'New Ipc airbus', new_ipc_airbus_path %>
+    <nav>
+   <h3>Import Airbus-File</h3>
+     <%= form_tag import_ipc_airbuses_path, multipart: true do %>
+     <%= file_field_tag :file, :class => 'btn btn-mini' %>
+     <%= submit_tag "Import", :class => 'btn btn-primary' %>
+    <% end %>
+  </div>
+ </nav>
+</footer>

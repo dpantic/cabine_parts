@@ -1,49 +1,37 @@
-<p id="notice"><%= notice %></p>
+f<%- model_class = IpcAirbus -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Ac type:</strong>
-  <%= @ipc_airbus.ac_type %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:ac_type) %>:</strong></dt>
+  <dd><%= @ipc_airbus.ac_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ata) %>:</strong></dt>
+  <dd><%= @ipc_airbus.ata %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:system) %>:</strong></dt>
+  <dd><%= @ipc_airbus.system %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @ipc_airbus.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fin) %>:</strong></dt>
+  <dd><%= @ipc_airbus.fin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:add_infos) %>:</strong></dt>
+  <dd><%= @ipc_airbus.add_infos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:part_number) %>:</strong></dt>
+  <dd><%= @ipc_airbus.part_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:add_material_info) %>:</strong></dt>
+  <dd><%= @ipc_airbus.add_material_info %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ipc) %>:</strong></dt>
+  <dd><%= @ipc_airbus.ipc %></dd>
+</dl>
 
-<p>
-  <strong>Ata:</strong>
-  <%= @ipc_airbus.ata %>
-</p>
-
-<p>
-  <strong>System:</strong>
-  <%= @ipc_airbus.system %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @ipc_airbus.description %>
-</p>
-
-<p>
-  <strong>Fin:</strong>
-  <%= @ipc_airbus.fin %>
-</p>
-
-<p>
-  <strong>Add infos:</strong>
-  <%= @ipc_airbus.add_infos %>
-</p>
-
-<p>
-  <strong>Part number:</strong>
-  <%= @ipc_airbus.part_number %>
-</p>
-
-<p>
-  <strong>Add material info:</strong>
-  <%= @ipc_airbus.add_material_info %>
-</p>
-
-<p>
-  <strong>Ipc:</strong>
-  <%= @ipc_airbus.ipc %>
-</p>
-
-<%= link_to 'Edit', edit_ipc_airbus_path(@ipc_airbus) %> |
-<%= link_to 'Back', ipc_airbuses_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              ipc_airbuses_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ipc_airbus_path(@ipc_airbus), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ipc_airbus_path(@ipc_airbus),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
