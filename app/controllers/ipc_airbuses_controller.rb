@@ -1,4 +1,5 @@
 class IpcAirbusesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_ipc_airbus, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 

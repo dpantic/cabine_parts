@@ -1,5 +1,5 @@
 class IpcAirbus < ActiveRecord::Base
- 
+  
 	attr_accessible :id, :ac_type, :ata, :system, :description, :fin, :add_infos, :part_number, :add_material_info, :ipc
    
   def self.import(file) 
@@ -25,7 +25,7 @@ class IpcAirbus < ActiveRecord::Base
 
   def self.search(search)
    if search 
-       where("id || ac_type || ata || system || description || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
+       where("id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
 
      #  where("ipc like ?","%#{search}%")
      #  find(:all, :conditions => ['ac_type LIKE ?', "%#{search}%"])

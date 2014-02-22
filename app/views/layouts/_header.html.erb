@@ -1,28 +1,22 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "cabin-parts-app", root_path, id: "logo" %>
-      <nav>
+   <div class="navbar-inner">
+      <div class="container">
+        <%= link_to "cabin-parts", root_path, id: "logo" %>
+       <nav>
        <form class="navbar-form pull-right form-search">
-       <div class="input-append">
-       <!--<i class="icon-zoom-in"></i>
-           <input data-provide="typeahead" data-items="4"  type="text" class="span2 search-query">
-           <button class="btn">Search</button>-->
-
-       <%= form_tag ipcboeings_path, :method => 'post' do %>
-        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :description => nil %>
-        </p>
-       <% end %>
-
-    </div>
-   </form>
-
+<div class="input-append">
+           <p>
+             <%= form_tag ipcboeings_path, :method => 'post' do %>
+             <%= text_field_tag :search, params[:search] %>
+      
+   <%= button_tag '<i class="icon-search"></i>'.html_safe, :class=>"btn", :description => nil %></p>
+             <% end %>
+           </div>
+   
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
 
-          <li><%= link_to "Help", help_path %></li>
+        
           <% if signed_in? %>
 
             <li id="fat-menu" class="dropdown">
@@ -33,12 +27,12 @@
                 <li><%= link_to "Airbus", ipc_airbuses_path %></li>
                 <li><%= link_to "Boeing", ipcboeings_path %></li>
                 <li><%= link_to "SPM List", spm_list_path  %></li>
-                <li><%= link_to "Seats", '#'  %></li>
-                <li><%= link_to "Tools", '#'  %></li>
-                <li><%= link_to "TSM", '#'  %></li>
-                <li><%= link_to "Faults", '#'  %></li>
-                <li><%= link_to "EO's", '#'  %></li>
-                <li><%= link_to "Material", '#'  %></li>
+                <li><%= link_to "Seats", '#' %></li>
+                <li><%#= link_to "Tools", '#' %></li>
+                <li><%#= link_to "TSM", '#' %></li>
+                <li><%#= link_to "Faults", '#' %></li>
+                <li><%#= link_to "EO's", '#' %></li>
+                <li><%#= link_to "Material", '#' %></li>
               </ul>
             </li>
 
@@ -58,7 +52,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%#= link_to "Sign in", signin_path %></li>
           <% end %>
         </ul>
       </nav>

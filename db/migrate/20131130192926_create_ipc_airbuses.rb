@@ -8,7 +8,7 @@ class CreateIpcAirbuses < ActiveRecord::Migration
       t.column :fin, :string
       t.column :add_infos, :string, :limit => 20
       t.column :part_number, :string
-      t.column :add_material_info, :limit => 20
+      t.column :add_material_info, :limit => 15
       t.column :ipc, :string
 
       t.timestamps

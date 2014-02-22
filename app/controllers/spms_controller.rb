@@ -1,4 +1,5 @@
 class SpmsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_spm, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
  
@@ -73,7 +74,6 @@ class SpmsController < ApplicationController
     Spm.column_names.include?(params[:sort]) ? params[:sort] : "id" 
     Spm.column_names.include?(params[:sort]) ? params[:sort] : "spm_ref" 
     Spm.column_names.include?(params[:sort]) ? params[:sort] : "bauteil" 
-
   end
 
   def sort_direction

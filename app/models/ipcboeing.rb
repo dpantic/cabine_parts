@@ -26,7 +26,7 @@ def self.import(file)
 
   def self.search(search)
    if search 
-       where("id || ac_type || ata || system || description || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
+       where("id || ac_type || ata || system || description || location || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
     else 
      find(:all)
    end

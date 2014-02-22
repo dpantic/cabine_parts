@@ -1,4 +1,5 @@
 class IpcboeingsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_ipcboeing, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
