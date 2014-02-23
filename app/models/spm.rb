@@ -21,17 +21,13 @@ class Spm < ActiveRecord::Base
     when ".csv"  then Roo::Csv.new(file.path, nil, :ignore)
     when ".xls"  then Roo::Excel.new(file.path, nil, :ignore)
     when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
-    else raise "Unknown file type: #{file.original_filename}"
+   else raise "Unknown file type: #{file.original_filename}"
     end
   end
 
  def self.search(search)
-   if search 
+    if search 
        where("id || spm_ref || bauteil like ?","%#{search}%")
-
-     #  where("ipc like ?","%#{search}%")
-     #  find(:all, :conditions => ['ac_type LIKE ?', "%#{search}%"])
-     #  find(:all, :conditions => ['ata LIKE  ?', "%#{search}%"])
     else 
      find(:all)
    end

@@ -4,7 +4,7 @@ class IpcAirbusesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
 
- def import
+  def import
     IpcAirbus.import(params[:file])
     redirect_to ipc_airbuses_path, notice: "Airbus Data imported."
   end
