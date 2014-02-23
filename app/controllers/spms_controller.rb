@@ -5,7 +5,7 @@ class SpmsController < ApplicationController
  
   def import
     Spm.import(params[:file])
-    redirect_to spms_path, notice: "SPM Ref. Imported!"
+    redirect_to spms_path, notice: "SPM Ref. imported!"
   end
 
   # GET /spms
@@ -88,7 +88,7 @@ class SpmsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def spm_params
      if params[:spm].present?
-      params.require(:spm).permit(:spm_ref, :bauteil)
+      params.require(:spm).permit(:id, :spm_ref, :bauteil)
      end
     end
 end

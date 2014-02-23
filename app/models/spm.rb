@@ -1,6 +1,6 @@
 class Spm < ActiveRecord::Base
 
-	attr_accessible :spm_ref, :bauteil
+	attr_accessible :id, :spm_ref, :bauteil
 
   def self.import(file)
 
