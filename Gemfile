@@ -3,6 +3,7 @@ ruby '2.1.0'
 #ruby-gemset=railstutorial_rails_4_0
 #Encoding.default_internal = Encoding::UTF_8
 
+
 gem 'rails', '4.0.1'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'

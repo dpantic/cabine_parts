@@ -26,8 +26,6 @@ class IpcAirbus < ActiveRecord::Base
   def self.search(search)
    if search 
        where("id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
-
-     #  where("ipc like ?","%#{search}%")
      #  find(:all, :conditions => ['ac_type LIKE ?', "%#{search}%"])
      #  find(:all, :conditions => ['ata LIKE  ?', "%#{search}%"])
     else 
@@ -35,11 +33,3 @@ class IpcAirbus < ActiveRecord::Base
    end
   end
 end 
-
-
-     
-
-    
-     
-     
-    
