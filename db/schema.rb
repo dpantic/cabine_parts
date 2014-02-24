@@ -1,4 +1,4 @@
- production# encoding: UTF-8
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,32 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210152434) do
+ActiveRecord::Schema.define(version: 20140223230736) do
 
   create_table "ipc_airbuses", force: true do |t|
-    t.string   "ac_type"
-    t.string   "ata"
-    t.string   "system"
-    t.string   "description"
-    t.string   "fin"
-    t.string   "add_infos"
-    t.string   "part_number"
-    t.string   "add_material_info"
-    t.string   "ipc"
+    t.text     "ac_type",           limit: 6
+    t.text     "string"
+    t.text     "ata",               limit: 5
+    t.text     "system"
+    t.text     "description"
+    t.text     "fin"
+    t.text     "add_infos",         limit: 15
+    t.text     "part_number"
+    t.text     "add_material_info", limit: 15
+    t.text     "ipc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "ipcboeings", force: true do |t|
-    t.string   "ac_type",           limit: 6
-    t.string   "ata",               limit: 5
-    t.string   "system"
-    t.string   "description"
-    t.string   "location"
-    t.string   "add_infos"
-    t.string   "part_number"
-    t.string   "add_material_info"
-    t.string   "ipc"
+    t.text     "ac_type",           limit: 6
+    t.text     "string"
+    t.text     "ata",               limit: 5
+    t.text     "system",            limit: 15
+    t.text     "description"
+    t.text     "location"
+    t.text     "add_infos",         limit: 20
+    t.text     "part_number"
+    t.text     "add_material_info", limit: 20
+    t.text     "ipc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "materials", force: true do |t|
+    t.text     "product_type"
+    t.text     "description"
+    t.text     "add_infos"
+    t.text     "mat_nr"
+    t.text     "part_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,8 +74,8 @@ ActiveRecord::Schema.define(version: 20131210152434) do
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "spms", force: true do |t|
-    t.string   "spm_ref",    limit: 8
-    t.string   "bauteil",    limit: 20
+    t.text     "spm_ref",    limit: 8
+    t.text     "bauteil",    limit: 20
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,15 +1,15 @@
-class IpcAirbus < ActiveRecord::Base
-  
-	attr_accessible :id, :ac_type, :ata, :system, :description, :fin, :add_infos, :part_number, :add_material_info, :ipc
+class Material < ActiveRecord::Base
+
+	attr_accessible :id, :product_type, :description, :add_infos, :mat_nr, :part_number
    
   def self.import(file) 
     spreadsheet = open_spreadsheet(file) 
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
      row = Hash[[header, spreadsheet.row(i)].transpose]
-     ipc_airbus = find_by_id(row["id"]) || new
-     ipc_airbus.attributes = row.to_hash.slice(*accessible_attributes)
-     ipc_airbus.save!
+     material = find_by_id(row["id"]) || new
+     material.attributes = row.to_hash.slice(*accessible_attributes)
+     material.save!
     end
    end	
 
@@ -24,11 +24,12 @@ class IpcAirbus < ActiveRecord::Base
 
   def self.search(search)
     if search 
-        where("id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
+       where("id || product_type || description || add_infos || mat_nr || part_number like ?","%#{search}%")
+       # where("id || product_type || description || add_infos || mat_nr like ?","%#{search}%")
         # find(:all, :conditions => ['id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%"])
     else
       #find(:all)
       all
    end
   end
-end 
+end

@@ -3,7 +3,6 @@ class IpcAirbusesController < ApplicationController
   before_action :set_ipc_airbus, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-
   def import
     IpcAirbus.import(params[:file])
     redirect_to ipc_airbuses_path, notice: "Airbus Data imported."
@@ -12,7 +11,6 @@ class IpcAirbusesController < ApplicationController
   # GET /ipc_airbuses
   # GET /ipc_airbuses.json
   def index
-    #@ipc_airbuses = IpcAirbus.
      @ipc_airbuses = IpcAirbus.order(sort_column + " " + sort_direction).search(params[:search])
   end
 
@@ -72,15 +70,16 @@ class IpcAirbusesController < ApplicationController
   end
 
 private
-
   def sort_column
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "id" 
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "ac_type" 
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "ata" 
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "system"
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "description"
-    IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "part_number"
+    IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "fin"
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "add_infos"
+    IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "part_number"
+    IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "add_material_info"    
     IpcAirbus.column_names.include?(params[:sort]) ? params[:sort] : "ipc"
   end
 

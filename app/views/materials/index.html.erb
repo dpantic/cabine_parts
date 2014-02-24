@@ -1,0 +1,56 @@
+<%- model_class = Material -%>
+<div class="page-header">
+ <!-- <h1><%#=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>-->
+   <h1>Material List</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sortable model_class.human_attribute_name(:id) %></th>
+      <th><%= sortable model_class.human_attribute_name(:product_type) %></th>
+      <th><%= sortable model_class.human_attribute_name(:description) %></th>
+      <th><%= sortable model_class.human_attribute_name(:add_infos) %></th>
+      <th><%= sortable model_class.human_attribute_name(:mat_nr) %></th>
+      <th><%= sortable model_class.human_attribute_name(:part_number) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @materials.each do |material| %>
+      <tr>
+        <td><%= link_to material.id, material_path(material) %></td>
+        <td><%= material.product_type %></td>
+        <td><%= material.description %></td>
+        <td><%= material.add_infos %></td>
+        <td><%= material.mat_nr %></td>
+        <td><%= material.part_number %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_material_path(material), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      material_path(material),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_material_path,
+            :class => 'btn btn-primary' %>
+</div>
+</br>
+<footer class="footer">
+
+    <nav>
+      <h3>Import Material File</h3>
+      <%= form_tag import_materials_path, multipart: true do %>
+      <%= file_field_tag :file, :class => 'btn btn-mini' %>
+      <%= submit_tag "Import", :class => 'btn btn-primary' %>
+    <% end %>
+    </div>
+  </nav>
+</footer>

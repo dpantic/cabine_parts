@@ -4,18 +4,15 @@
         <%= link_to "cabin-parts", root_path, id: "logo" %>
        <nav>
        <form class="navbar-form pull-right form-search">
-<div class="input-append">
+        <div class="input-append">
            <p>
-             <%= form_tag ipcboeings_path, :method => 'post' do %>
+             <%= form_tag root_path, :method => 'get' do %>  
              <%= text_field_tag :search, params[:search] %>
-      
-   <%= button_tag '<i class="icon-search"></i>'.html_safe, :class=>"btn", :description => nil %></p>
+             <%= button_tag '<i class="icon-search"></i>'.html_safe, :class=>"btn", :description => nil %></p>
              <% end %>
-           </div>
-   
+           </div>   
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
-
         
           <% if signed_in? %>
 
@@ -27,15 +24,14 @@
                 <li><%= link_to "Airbus", ipc_airbuses_path %></li>
                 <li><%= link_to "Boeing", ipcboeings_path %></li>
                 <li><%= link_to "SPM List", spm_list_path  %></li>
-                <li><%= link_to "Seats", '#' %></li>
-                <li><%#= link_to "Tools", '#' %></li>
-                <li><%#= link_to "TSM", '#' %></li>
-                <li><%#= link_to "Faults", '#' %></li>
+                <li><%= link_to "Consumable Material", materials_path %></li>
+                <li><%= link_to "Tools N/A", '#' %></li>
+                <li><%= link_to "TSM N/A",'#' %></li>
+                <li><%= link_to "Faults N/A", '#' %></li>
                 <li><%#= link_to "EO's", '#' %></li>
                 <li><%#= link_to "Material", '#' %></li>
               </ul>
             </li>
-
 
             <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
@@ -49,9 +45,9 @@
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>
                 </li>
-              </ul>
-            </li>
-          <% else %>
+               </ul>
+             </li>
+            <% else %>
             <li><%#= link_to "Sign in", signin_path %></li>
           <% end %>
         </ul>

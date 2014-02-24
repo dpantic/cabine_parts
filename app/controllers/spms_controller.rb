@@ -70,25 +70,25 @@ class SpmsController < ApplicationController
   end
  
   private
-   def sort_column
-    Spm.column_names.include?(params[:sort]) ? params[:sort] : "id" 
-    Spm.column_names.include?(params[:sort]) ? params[:sort] : "spm_ref" 
-    Spm.column_names.include?(params[:sort]) ? params[:sort] : "bauteil" 
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_spm
-      @spm = Spm.find(params[:id])
-    end
+    def sort_column
+     Spm.column_names.include?(params[:sort]) ? params[:sort] : "id" 
+     Spm.column_names.include?(params[:sort]) ? params[:sort] : "spm_ref" 
+     Spm.column_names.include?(params[:sort]) ? params[:sort] : "bauteil" 
+   end
  
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def spm_params
-     if params[:spm].present?
-      params.require(:spm).permit(:id, :spm_ref, :bauteil)
+   def sort_direction
+     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+   end
+ 
+     # Use callbacks to share common setup or constraints between actions.
+     def set_spm
+       @spm = Spm.find(params[:id])
      end
+  
+     # Never trust parameters from the scary internet, only allow the white list through.
+     def spm_params
+      if params[:spm].present?
+       params.require(:spm).permit(:id, :spm_ref, :bauteil )
     end
+  end
 end

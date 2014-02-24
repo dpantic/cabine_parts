@@ -1,7 +1,7 @@
 <%- model_class = Spm -%>
 <div class="page-header">
   <!-- <h1><%#=t '.title', :default => model_class.model_name.human.titleize.upcase %></h1> -->
-  <h1> SPM List</h1>
+  <h1>SPM List</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -37,19 +37,16 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_spm_path,
             :class => 'btn btn-primary' %>
-
-
 <div>
-  </br>
-  <footer class="footer">
+</br>
+<footer class="footer">
 
     <nav>
-<h3>Import SPM-File</h3>
-<%= form_tag import_spms_path, multipart: true do %>
-  <%= file_field_tag :file, :class => 'btn btn-mini' %>
-  <%= submit_tag "Import", 
-  :class => 'btn btn-primary' %>
-<% end %>
-</div>
-</nav>
+      <h3>Import SPM-File</h3>
+      <%= form_tag import_spms_path, multipart: true do %>
+      <%= file_field_tag :file, :class => 'btn btn-mini' %>
+      <%= submit_tag "Import", :class => 'btn btn-primary' %>
+    <% end %>
+    </div>
+  </nav>
 </footer>

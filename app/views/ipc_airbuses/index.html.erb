@@ -12,23 +12,7 @@
       <th><%= sortable model_class.human_attribute_name(:ac_type) %></th>
       <th><%= sortable model_class.human_attribute_name(:ata) %></th>
       <th><%= sortable model_class.human_attribute_name(:system) %></th>
-      <th><%= sortable model_class.human_attribute_name(:description) %></span>
-             <!-- <abbr class="select2-search-choice-close"></abbr>
-              <span class="select2-arrow">
-              <b></b>
-          </span>
-        </a> 
-          <input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen1">
-            <div class="select2-drop select2-display-none select2-with-searchbox">
-            <div class="select2-search">
-            </div>-->
-            
-        <!--  <select id="select-description" style="width: 150px" tabindex="-1" class="select2-offscreen">
-            <option></option>
-            <option value="6">A</option>
-          </select>
-        <div style="width: 200px"><%#= link_to model_class.human_attribute_name(:description, :sort =>"description") %> --> </th>
-       
+      <th><%= sortable model_class.human_attribute_name(:description) %></th>
       <th><%= sortable model_class.human_attribute_name(:fin) %></th>
       <th><%= sortable model_class.human_attribute_name(:add_infos) %></th>
       <th><%= sortable model_class.human_attribute_name(:part_number) %></th>
@@ -65,6 +49,7 @@
     <% end %>
   </tbody>
 </table>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_ipc_airbus_path,
             :class => 'btn btn-primary' %>
