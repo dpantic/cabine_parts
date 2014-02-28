@@ -20,10 +20,10 @@ class Material < ActiveRecord::Base
        when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
      else raise "Unknown file type: #{file.original_filename}"
     end
-   end
+  end
 
   def self.search(search)
-    if search 
+   if search 
        where("id || product_type || description || add_infos || mat_nr || part_number like ?","%#{search}%")
        # where("id || product_type || description || add_infos || mat_nr like ?","%#{search}%")
         # find(:all, :conditions => ['id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%"])

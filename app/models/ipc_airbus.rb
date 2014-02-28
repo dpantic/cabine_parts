@@ -31,4 +31,4 @@ class IpcAirbus < ActiveRecord::Base
       all
    end
   end
-end 
+end

@@ -7,7 +7,7 @@ class Ipcboeing < ActiveRecord::Base
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
      row = Hash[[header, spreadsheet.row(i)].transpose]
-     ipcboeing = find_by_id(row["id || ac_type || ata || system || description || location || add_infos || part_number"]) || new
+     ipcboeing = find_by_id(row["id"]) || new
      ipcboeing.attributes = row.to_hash.slice(*accessible_attributes)
      ipcboeing.save!
     end
@@ -22,13 +22,12 @@ class Ipcboeing < ActiveRecord::Base
     end
   end
 
-
-
   def self.search(search)
    if search 
-       where('id || ac_type || ata || system || description || location || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%")
+       where("id ||  add_material_info || ata || system || description || location || add_infos || part_number || ipc  like ?","%#{search}%")
     else 
      all
    end
   end
 end 
+

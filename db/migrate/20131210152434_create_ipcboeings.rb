@@ -1,15 +1,15 @@
 class CreateIpcboeings < ActiveRecord::Migration
   def change
     create_table :ipcboeings do |t|
-      t.text :ac_type, :string, :limit => 6
-      t.text :ata, :string, :limit => 5
-      t.text :system, :string, :limit => 15
-      t.text :description, :string
-      t.text :location, :string
-      t.text :add_infos, :string, :limit => 20
-      t.text :part_number, :string
-      t.text :add_material_info, :limit => 20
-      t.text :ipc, :string
+      t.text :ac_type, :limit => 6
+      t.text :ata, :limit => 5
+      t.text :system, :limit => 15
+      t.text :description
+      t.text :location
+      t.text :add_infos
+      t.text :part_number
+      t.text :add_material_info
+      t.text :ipc
 
       t.timestamps
     end

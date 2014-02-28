@@ -12,7 +12,7 @@ class IpcboeingsController < ApplicationController
   # GET /ipcboeings
   # GET /ipcboeings.json
   def index
-     @ipcboeings = Ipcboeing.order(sort_column + " " + sort_direction).search(params[:search])
+   @ipcboeings = Ipcboeing.order(sort_column + " " + sort_direction).search(params[:search])
   end
 
   # GET /ipcboeings/1
@@ -80,7 +80,7 @@ private
     Ipcboeing.column_names.include?(params[:sort]) ? params[:sort] : "system"
     Ipcboeing.column_names.include?(params[:sort]) ? params[:sort] : "description"
     Ipcboeing.column_names.include?(params[:sort]) ? params[:sort] : "part_number"
-    Ipcboeing.column_names.include?(params[:sort]) ? params[:sort] :  "ipc"
+    Ipcboeing.column_names.include?(params[:sort]) ? params[:sort] : "ipc"
   end
 
     def sort_direction
