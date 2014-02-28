@@ -12,7 +12,8 @@ class IpcboeingsController < ApplicationController
   # GET /ipcboeings
   # GET /ipcboeings.json
   def index
-   @ipcboeings = Ipcboeing.order(sort_column + " " + sort_direction).search(params[:search])
+  # @ipcboeings = Ipcboeing.order(sort_column + " " + sort_direction).search(params[:search])
+   @ipcboeings = Ipcboeing.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 20, :page => params[:page])
   end
 
   # GET /ipcboeings/1

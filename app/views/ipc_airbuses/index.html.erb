@@ -1,4 +1,5 @@
 <%- model_class = IpcAirbus -%>
+
  <div class="page-header">
   <!-- <h1><%#=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
    <h1>Airbus Parts List</h1>
@@ -50,11 +51,14 @@
   </tbody>
 </table>
 
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_ipc_airbus_path,
             :class => 'btn btn-primary' %>
 <div>
+    <%= will_paginate @ipc_airbuses %>
   </br>
+
   <footer class="footer">
 
     <nav>

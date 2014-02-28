@@ -11,7 +11,8 @@ class SpmsController < ApplicationController
   # GET /spms
   # GET /spms.json
   def index
-    @spms = Spm.order(sort_column + " " + sort_direction).search(params[:search])
+   # @spms = Spm.order(sort_column + " " + sort_direction).search(params[:search])
+     @spms = Spm.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 20, :page => params[:page])
   end
  
   # GET /spms/1

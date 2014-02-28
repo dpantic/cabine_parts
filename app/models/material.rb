@@ -9,7 +9,7 @@ class Material < ActiveRecord::Base
      row = Hash[[header, spreadsheet.row(i)].transpose]
      material = find_by_id(row["id"]) || new
      material.attributes = row.to_hash.slice(*accessible_attributes)
-     material.save!
+     material.save
     end
    end	
 
@@ -29,7 +29,8 @@ class Material < ActiveRecord::Base
         # find(:all, :conditions => ['id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%"])
     else
       #find(:all)
-      all
+      #all
+      scoped
    end
   end
 end

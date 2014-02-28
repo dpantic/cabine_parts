@@ -30,7 +30,8 @@ class Spm < ActiveRecord::Base
       #find(:all, :conditions => ['id || spm_ref || bauteil like ?', "%#{search}%"])
     else 
      #find(:all)
-     all
+     #all
+     scoped
    end
   end
 end 

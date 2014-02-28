@@ -28,7 +28,8 @@ class IpcAirbus < ActiveRecord::Base
         # find(:all, :conditions => ['id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%"])
     else
       #find(:all)
-      all
+     # all
+     scoped
    end
   end
 end

@@ -26,7 +26,8 @@ class Ipcboeing < ActiveRecord::Base
    if search 
        where("id || ata || system || description || location || add_infos || part_number || add_material_info || ipc  like ?","%#{search}%")
     else 
-     all
+     #all
+     scoped
    end
   end
 end 

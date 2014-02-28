@@ -11,7 +11,8 @@ def import
   # GET /materials
   # GET /materials.json
   def index
-    @materials = Material.order(sort_column + " " + sort_direction).search(params[:search])
+    #@materials = Material.order(sort_column + " " + sort_direction).search(params[:search])
+     @materials = Material.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 20, :page => params[:page])
   end
 
   # GET /materials/1

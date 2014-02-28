@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
 
   def sortable(column, title = nil)
   	title ||= column.titleize
@@ -6,6 +7,7 @@ module ApplicationHelper
     direction = column == params[:sort] && params[:direction] == "asc" ? "desc" : "asc"
     link_to "#{title} <i class='#{direction == "desc" ? "icon-arrow-down" : "icon-arrow-up"}'></i>".html_safe, {:sort => column, :direction => direction}, {:class => css_class}
   end
+
 
   # Returns the full title on a per-page basis.
   def full_title(page_title)
