@@ -6,9 +6,9 @@ class CreateIpcAirbuses < ActiveRecord::Migration
       t.text :system, :string
       t.text :description, :string
       t.text :fin, :string
-      t.text :add_infos, :string, :limit => 15
+      t.text :add_infos, :string
       t.text :part_number, :string
-      t.text :add_material_info, :limit => 15
+      t.text :add_material_info
       t.text :ipc, :string
 
       t.timestamps

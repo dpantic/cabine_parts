@@ -24,7 +24,7 @@ class Ipcboeing < ActiveRecord::Base
 
   def self.search(search)
    if search 
-       where("id ||  add_material_info || ata || system || description || location || add_infos || part_number || ipc  like ?","%#{search}%")
+       where("id || ata || system || description || location || add_infos || part_number || add_material_info || ipc  like ?","%#{search}%")
     else 
      all
    end
