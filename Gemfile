@@ -22,14 +22,13 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails'
 gem 'yaml_db'
 gem 'paperclip'
-gem 'taps'
 gem 'roo'
 gem 'iconv'
 #gem 'fastercsv'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'pry'
-gem 'pg_search'
+#gem 'pg_search'
 gem "font-awesome-rails"
 
 group :development, :test do
@@ -77,4 +76,5 @@ group :production do
   gem 'pg', '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'thin'
+  gem 'taps'
 end
