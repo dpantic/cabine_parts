@@ -22,11 +22,11 @@ class Spm < ActiveRecord::Base
        when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
      else raise "Unknown file type: #{file.original_filename}"
     end
-   end
- 
+  end
+
   def self.search(search)
-    if search 
-       where("id || spm_ref || bauteil like ?","%#{search}%")
+   if search 
+       where("id || spm_ref || bauteil LIKE ?","%#{search}%")
       #find(:all, :conditions => ['id || spm_ref || bauteil like ?', "%#{search}%"])
     else 
      #find(:all)

@@ -2,7 +2,7 @@ class Ipcboeing < ActiveRecord::Base
 	
 	attr_accessible :id, :ac_type, :ata, :system, :description, :location, :add_infos, :part_number, :add_material_info, :ipc
 
-  def self.import(file)
+ def self.import(file)
     spreadsheet = open_spreadsheet(file) 
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
@@ -24,9 +24,9 @@ class Ipcboeing < ActiveRecord::Base
 
   def self.search(search)
    if search 
-       where("id || ata || system || description || location || add_infos || part_number || add_material_info || ipc  like ?","%#{search}%")
+        search_cols = ["id", "ac_type", "ata", "system", "description", "location", "add_infos", "part_number", "add_material_info", "ipc"] # Put all of your column names here
+        where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
     else 
-     #all
      scoped
    end
   end

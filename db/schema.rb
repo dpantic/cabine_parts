@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20140223230736) do
     t.text     "system"
     t.text     "description"
     t.text     "fin"
-    t.text     "add_infos",         limit: 15
+    t.text     "add_infos"
     t.text     "part_number"
-    t.text     "add_material_info", limit: 15
+    t.text     "add_material_info"
     t.text     "ipc"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -30,14 +30,13 @@ ActiveRecord::Schema.define(version: 20140223230736) do
 
   create_table "ipcboeings", force: true do |t|
     t.text     "ac_type",           limit: 6
-    t.text     "string"
     t.text     "ata",               limit: 5
     t.text     "system",            limit: 15
     t.text     "description"
     t.text     "location"
-    t.text     "add_infos",         limit: 20
+    t.text     "add_infos"
     t.text     "part_number"
-    t.text     "add_material_info", limit: 20
+    t.text     "add_material_info"
     t.text     "ipc"
     t.datetime "created_at"
     t.datetime "updated_at"
