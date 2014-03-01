@@ -1,8 +1,6 @@
 <% if signed_in? %>
   <div class="row">
-
     <aside class="span4">
-
       <section>
         <%= render 'shared/user_info' %>
       </section>
@@ -35,8 +33,7 @@
               });
           });
        </script>
-         </div>
-  
+    </div>
   </head>
   <div class="cover">
        <div class="container">
@@ -50,15 +47,17 @@
                 <div class="panel-body">
                   <form class="form-horizontal" role="form">
                   <div class="form-group">
-                     <h4>  Cabin-Parts App Beta</h4>
+                     <h4>Cabin-Parts Beta</h4>
                   </div>
                 </div>
               </div>
              <div class="form-group last">
                <div class="col-sm-offset-3 col-sm-9">
+                
                 <%= link_to "Sign in!", signin_path, class: "btn btn-primary btn-primary" %>
-                  
+                     
                 <%= link_to "Sign up!", signup_path, class: "btn btn-success btn-sm" %>
+            
               <% end %> 
           </div>    
       </div>

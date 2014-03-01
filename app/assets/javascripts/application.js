@@ -16,19 +16,3 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-
-$(function () {
-  // Sorting and pagination links.
-  $('#products th a, #products .pagination a').live('click', 
-    function () {
-      $.getScript(this.href);
-      return false;
-    }
-  );
-  
-  // Search form.
-  $('#products_search').submit(function () {
-    $.get(this.action, $(this).serialize(), null, 'script');
-    return false;
-  });
-});
