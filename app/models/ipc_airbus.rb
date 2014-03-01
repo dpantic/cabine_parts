@@ -22,14 +22,22 @@ class IpcAirbus < ActiveRecord::Base
     end
    end
 
-  def self.search(search)
-    if search 
-        where("id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
-        # find(:all, :conditions => ['id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%"])
-    else
-      #find(:all)
-     # all
-     scoped
-   end
-  end
+include PgSearch
+  pg_search_scope :search,
+    :against => [ :ac_type, :ata, :system, :description, :fin, :add_infos, :part_number, :add_material_info, :ipc],
+    :using => [:tsearch, :dmetaphone, :trigrams],
+    :ignoring => :accents
 end
+
+ # def self.search(search,type)
+ #   if search 
+ #      # where("system || description || fin || add_infos || part_number || add_material_info || ipc like ?","%#{search}%")
+ #     where("system OR description OR add_infos OR part_number OR add_material_info OR ipc like ?","%#{search}%")
+ #       # find(:all, :conditions => ['id || ac_type || ata || system || description || fin || add_infos || part_number || add_material_info || ipc like ?',"%#{search}%"])
+ #   else
+ #     #find(:all)
+ #     #all
+ #    scoped
+ #  end
+ # end
+#end

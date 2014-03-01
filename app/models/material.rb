@@ -9,7 +9,7 @@ class Material < ActiveRecord::Base
      row = Hash[[header, spreadsheet.row(i)].transpose]
      material = find_by_id(row["id"]) || new
      material.attributes = row.to_hash.slice(*accessible_attributes)
-     material.save
+     material.save!
     end
    end	
 

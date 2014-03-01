@@ -4,7 +4,6 @@
   <!-- <h1><%#=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
    <h1>Airbus Parts List</h1>
 </div> 
-
 <div class="tab-content">
 <table class="table table-striped">
   <thead>
@@ -19,7 +18,6 @@
       <th><%= sortable model_class.human_attribute_name(:part_number) %></th>
       <th><%= sortable model_class.human_attribute_name(:add_material_info) %></th>
       <th><%= sortable model_class.human_attribute_name(:ipc) %></th>
-     
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
