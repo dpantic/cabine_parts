@@ -30,6 +30,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'pry'
 gem 'pg_search'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
