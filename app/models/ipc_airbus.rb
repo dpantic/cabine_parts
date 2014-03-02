@@ -28,7 +28,7 @@ class IpcAirbus < ActiveRecord::Base
     if search 
        # where("system OR description OR fin OR add_infos OR part_number || add_material_info OR ipc like ?","%#{search}%")
       #where("description || add_infos || ata || ac_type || system || id || part_number || add_material_info || ipc like ?","%#{search}%")
-        # find(:all, :conditions => ['id OR ac_type OR ata OR system OR description OR fin OR add_infos OR part_number OR add_material_info OR ipc like ?',"%#{search}%"])
+        # find(:all, :conditions => ['id OR ac_type OR ata OR system OR description OR fin OR add_infos OR part_number OR add_material_info OR ipc like ?',"%#{search}%"])‚
       search_cols = ["id", "description", "add_infos", "ata", "ac_type", "system", "part_number", "add_material_info", "ipc"] # Put all of your column names here
       where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)
     else
