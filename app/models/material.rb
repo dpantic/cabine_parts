@@ -1,6 +1,6 @@
 class Material < ActiveRecord::Base
 
-	attr_accessible :id, :product_type, :description, :add_infos, :mat_nr, :part_number
+	attr_accessible :product_type, :description, :add_infos, :mat_nr, :part_number
    
   def self.import(file) 
     spreadsheet = open_spreadsheet(file) 
@@ -25,7 +25,7 @@ class Material < ActiveRecord::Base
   def self.search(search)
    if search 
       # where("id || product_type || description || add_infos || mat_nr || part_number like ?","%#{search}%")
-       search_cols = ["id", "product_type", "description", "add_infos", "mat_nr", "part_number"]
+       search_cols = ["product_type", "description", "add_infos", "mat_nr", "part_number"]
        where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
     else
       scoped
