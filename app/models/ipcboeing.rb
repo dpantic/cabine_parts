@@ -26,7 +26,7 @@ class Ipcboeing < ActiveRecord::Base
   def self.search(search)
    if search 
         search_cols = ["ac_type", "ata", "system", "description", "location", "add_infos", "part_number", "add_material_info", "ipc"] # Put all of your column names here
-        where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
+        where(search_cols.map{|col| "#{col} iLIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
     else 
      scoped
    end

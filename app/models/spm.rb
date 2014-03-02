@@ -29,7 +29,7 @@ class Spm < ActiveRecord::Base
    if search 
        #where("id || spm_ref || bauteil LIKE ?","%#{search}%")
         search_cols = ["spm_ref", "bauteil"]
-        where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
+        where(search_cols.map{|col| "#{col} iLIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
       #find(:all, :conditions => ['id || spm_ref || bauteil like ?', "%#{search}%"])
     else 
      #find(:all)

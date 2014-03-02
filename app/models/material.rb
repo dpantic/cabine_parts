@@ -26,7 +26,7 @@ class Material < ActiveRecord::Base
    if search 
       # where("id || product_type || description || add_infos || mat_nr || part_number like ?","%#{search}%")
        search_cols = ["product_type", "description", "add_infos", "mat_nr", "part_number"]
-       where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
+       where(search_cols.map{|col| "#{col} iLIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
     else
       scoped
    end
