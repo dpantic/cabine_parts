@@ -76,4 +76,7 @@ SampleApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # replace this with your tracker code
+GA.tracker = "UA-24598434-6"
 end
