@@ -1,5 +1,4 @@
 <%- model_class = IpcAirbus -%>
-
  <div class="page-header">
   <!-- <h1><%#=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
    <h1>Airbus Parts List</h1>
@@ -8,7 +7,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sortable model_class.human_attribute_name(:id) %></th>
+     <!-- <th><%#= sortable model_class.human_attribute_name(:id) %></th> -->
       <th><%= sortable model_class.human_attribute_name(:ac_type) %></th>
       <th><%= sortable model_class.human_attribute_name(:ata) %></th>
       <th><%= sortable model_class.human_attribute_name(:system) %></th>
@@ -24,11 +23,11 @@
   <tbody>
     <% @ipc_airbuses.each do |ipc_airbus| %>
       <tr>
-        <td><%= link_to ipc_airbus.id, ipc_airbus_path(ipc_airbus) %></td>
+     <!--   <td><%= link_to ipc_airbus.id, ipc_airbus_path(ipc_airbus) %></td> -->
         <td><%= ipc_airbus.ac_type %></td>
         <td><%= ipc_airbus.ata %></td>
         <td><%= ipc_airbus.system %></td>
-        <td><%= ipc_airbus.description %></td>
+        <td><%= link_to ipc_airbus.description %></td>
         <td><%= ipc_airbus.fin %></td>
         <td><%= ipc_airbus.add_infos %></td>
         <td><%= ipc_airbus.part_number %></td>

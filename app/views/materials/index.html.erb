@@ -7,7 +7,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sortable model_class.human_attribute_name(:id) %></th>
+    <!--  <th><%#= sortable model_class.human_attribute_name(:id) %></th> -->
       <th><%= sortable model_class.human_attribute_name(:product_type) %></th>
       <th><%= sortable model_class.human_attribute_name(:description) %></th>
       <th><%= sortable model_class.human_attribute_name(:add_infos) %></th>
@@ -19,7 +19,7 @@
   <tbody>
     <% @materials.each do |material| %>
       <tr>
-        <td><%= link_to material.id, material_path(material) %></td>
+       <!-- <td><%#= link_to material.id, material_path(material) %></td> -->
         <td><%= material.product_type %></td>
         <td><%= material.description %></td>
         <td><%= material.add_infos %></td>
