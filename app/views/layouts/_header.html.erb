@@ -6,7 +6,7 @@
        <form class="navbar-form pull-right form-search">
         <div class="input-append">
           
-             <%= form_tag root_path, :method => 'post' do %>  
+             <%= form_tag root_path, :method => 'get' do %>  
              <%= hidden_field_tag :direction, params[:direction] %>
              <%= hidden_field_tag :sort, params[:sort] %>
           
