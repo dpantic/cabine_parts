@@ -7,7 +7,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sortable model_class.human_attribute_name(:id) %></th>
+    <!--  <th><%#= sortable model_class.human_attribute_name(:id) %></th> -->
       <th><%= sortable model_class.human_attribute_name(:ac_type) %></th>
       <th><%= sortable model_class.human_attribute_name(:ata) %></th> 
       <th><%= sortable model_class.human_attribute_name(:system) %></th>
@@ -24,11 +24,11 @@
   <tbody>
     <% @ipcboeings.each do |ipcboeing| %>
       <tr>
-        <td><%= link_to ipcboeing.id, ipcboeing_path(ipcboeing) %></td>
+      <!--  <td><%#= link_to ipcboeing.id, ipcboeing_path(ipcboeing) %></td> -->
         <td><%= ipcboeing.ac_type %></td>
         <td><%= ipcboeing.ata %></td>
         <td><%= ipcboeing.system %></td>
-        <td><%= ipcboeing.description %></td>
+        <td><%= link_to ipcboeing.description %></td>
         <td><%= ipcboeing.location %></td>
         <td><%= ipcboeing.add_infos %></td>
         <td><%= ipcboeing.part_number %></td>

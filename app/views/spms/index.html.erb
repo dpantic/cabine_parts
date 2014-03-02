@@ -7,7 +7,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sortable model_class.human_attribute_name(:id) %></th>
+      <!--<th><%#= sortable model_class.human_attribute_name(:id) %></th> -->
       <th><%= sortable model_class.human_attribute_name(:spm_ref) %></th>
       <th><%= sortable model_class.human_attribute_name(:bauteil) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,9 +16,9 @@
   <tbody>
     <% @spms.each do |spm| %>
       <tr>
-        <td><%= link_to spm.id, spm_path(spm) %></td>
+      <!--  <td><%#= link_to spm.id, spm_path(spm) %></td> -->
         <td><%= spm.spm_ref %></td>
-        <td><%= spm.bauteil %></td>
+        <td><%= link_to spm.bauteil %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_spm_path(spm), :class => 'btn btn-mini' %>

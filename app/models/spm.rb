@@ -1,6 +1,7 @@
 class Spm < ActiveRecord::Base
 
-	attr_accessible :id, :spm_ref, :bauteil
+	#attr_accessible :id, :spm_ref, :bauteil
+  attr_accessible :spm_ref, :bauteil
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file) 
@@ -27,7 +28,7 @@ class Spm < ActiveRecord::Base
   def self.search(search)
    if search 
        #where("id || spm_ref || bauteil LIKE ?","%#{search}%")
-        search_cols = ["id", "spm_ref", "bauteil"]
+        search_cols = ["spm_ref", "bauteil"]
         where(search_cols.map{|col| "#{col} LIKE ?"}.join(" OR "), *["%#{search}%"] * search_cols.length)   
       #find(:all, :conditions => ['id || spm_ref || bauteil like ?', "%#{search}%"])
     else 
