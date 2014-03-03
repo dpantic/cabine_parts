@@ -31,6 +31,8 @@ gem 'pry'
 #gem 'pg_search'
 gem "font-awesome-rails"
 gem 'google-analytics-rails'
+gem 'pg', '0.17.1'
+ gem 'taps'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
